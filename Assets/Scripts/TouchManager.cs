@@ -7,8 +7,17 @@ public class TouchManager : MonoBehaviour
 {
    
     [SerializeField] GameObject Objeto;
+    private void OnEnable()
+    {
+        EnhancedTouchSupport.Enable();
+    }
+    private void OnDisable()
+    {
+        EnhancedTouchSupport.Disable();
 
-     void Update()
+    }
+
+    void Update()
      {
       if(Touchscreen.current.touches.Count > 0)
         {
