@@ -3,19 +3,17 @@ using UnityEngine;
 
 public class Detection : MonoBehaviour
 {
-    [SerializeField]GameObject OnjetoA;
-    GameObject OnjetoB;
-    void Update()
+   [SerializeField] TouchManager detection;
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (OnjetoA.transform.position == OnjetoB.transform.position)
+     
+        if (other.CompareTag("Player"))
         {
-            Debug.Log(OnjetoA + "Dispositivo USB conectado");
-
+            if (detection != null)
+            {
+                detection.StopMoving();
+            }
         }
-        else if (OnjetoA.transform.position != OnjetoB.transform.position);
-        {
-            Debug.Log( "No se detecta dispositivo");
-        }
-
     }
 }
